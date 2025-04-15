@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --foreground-rgb: 0, 0, 0;
+    --background-rgb: 255, 255, 255;
+    --input-text-color: 0, 0, 0;
+    --input-bg-color: 255, 255, 255;
+    --input-border-color: 226, 232, 240; /* secondary-300 equivalent */
+    --badge-text-color: 0, 0, 0;
+    --badge-bg-color: 226, 232, 240; /* secondary-300 equivalent */
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-rgb: 15, 23, 42;
+        --input-text-color: 0, 0, 0;
+        --input-bg-color: 255, 255, 255;
+        --input-border-color: 148, 163, 184; /* secondary-400 equivalent for better visibility */
+        --badge-text-color: 255, 255, 255;
+        --badge-bg-color: 51, 65, 85; /* slate-700 equivalent for dark mode */
+    }
+}
+
+body {
+    color: rgb(var(--foreground-rgb));
+    background: rgb(var(--background-rgb));
+}
+
+@layer components {
+    .btn {
+        @apply px-4 py-2 font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors;
+    }
+    .btn-primary {
+        @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+    }
+    .btn-secondary {
+        @apply bg-secondary-200 text-secondary-800 hover:bg-secondary-300 focus:ring-secondary-500;
+    }
+    .btn-danger {
+        @apply bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
+    }
+    .input {
+        @apply w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500;
+        color: rgb(var(--input-text-color));
+        background-color: rgb(var(--input-bg-color));
+        border-color: rgb(var(--input-border-color));
+    }
+    .label {
+        @apply block text-sm font-medium text-secondary-700 mb-1;
+    }
+    .form-error {
+        @apply mt-1 text-sm text-red-600;
+    }
+
+    /* Add badge styles with good contrast */
+    .badge {
+        @apply px-2 py-1 text-xs font-medium rounded-full;
+        color: rgb(var(--badge-text-color));
+        background-color: rgb(var(--badge-bg-color));
+    }
+
+    /* Additional badge variants with guaranteed contrast */
+    .badge-blue {
+        @apply bg-blue-500 text-white;
+    }
+    .badge-green {
+        @apply bg-green-500 text-white;
+    }
+    .badge-red {
+        @apply bg-red-500 text-white;
+    }
+    .badge-yellow {
+        @apply bg-yellow-500 text-gray-900;
+    }
+    .badge-purple {
+        @apply bg-purple-500 text-white;
+    }
+    .badge-gray {
+        @apply bg-gray-500 text-white;
+    }
+}
